@@ -9,7 +9,7 @@
     the console.
 
 
-## Follew the steps to run the service
+## Follow the steps to run the service
 ## Step 1:
 ### `npm i`
 To install the modules required by the service
@@ -18,7 +18,7 @@ To install the modules required by the service
 ## Step 2: 
 create the .env file with following entries
 ### `.env` file
-`NODE_ENV=development || test || production
+NODE_ENV=development || test || production
 IMAP_DEV_USER=your_dev_email@gmail.com
 IMAP_DEV_PASSWORD=secret
 IMAP_DEV_HOST=imap.gmail.com
@@ -32,7 +32,7 @@ IMAP_TEST_PORT=993
 IMAP_PROD_USER=your_prod_email@gmail.com
 IMAP_PROD_PASSWORD=secret
 IMAP_PROD_HOST=imap.gmail.com
-IMAP_PROD_PORT=993`
+IMAP_PROD_PORT=993
 
 ## Step 3:
 ### `npm run start`
