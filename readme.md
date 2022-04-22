@@ -17,7 +17,7 @@ To install the modules required by the service
 
 Step 2: 
 create the .env file with following entries
-
+### `.env` file
 `NODE_ENV=development || test || production
 IMAP_DEV_USER=your_dev_email@gmail.com
 IMAP_DEV_PASSWORD=secret
