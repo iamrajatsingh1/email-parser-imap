@@ -8,8 +8,8 @@
     ● Listen for any new updates in the mailbox (new message, deleted messages etc) and prints it in
     the console.
 
-Pre-requisites: 
-## Available Scripts
+
+## Follew the steps to run the service
 Step 1:
 ### `npm i`
 To install the modules required by the service
