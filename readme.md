@@ -10,12 +10,12 @@
 
 
 ## Follew the steps to run the service
-Step 1:
+## Step 1:
 ### `npm i`
 To install the modules required by the service
 
 
-Step 2: 
+## Step 2: 
 create the .env file with following entries
 ### `.env` file
 `NODE_ENV=development || test || production
@@ -34,6 +34,6 @@ IMAP_PROD_PASSWORD=secret
 IMAP_PROD_HOST=imap.gmail.com
 IMAP_PROD_PORT=993`
 
-Step 3:
+## Step 3:
 ### `npm run start`
 This will run the app in the production mode.<br>
