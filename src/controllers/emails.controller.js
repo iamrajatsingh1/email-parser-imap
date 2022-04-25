@@ -1,4 +1,4 @@
-const { getAllEmails } = require("../services/getAllEmails.service");
+const { getAllEmails } = require("../services/emails.service");
 
 module.exports.readAllEmailsController = () => {
   getAllEmails();

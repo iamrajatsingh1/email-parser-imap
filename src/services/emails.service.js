@@ -18,7 +18,9 @@ module.exports.getAllEmails = () => {
     imap.once("ready", execute);
     // Emitted when new mail arrives in the currently open mailbox
     imap.on("mail", (numNewMsgs) => {
-      console.log("Number of new Mails: " + numNewMsgs);
+      console.log(
+        "Number of new Mails: " + numNewMsgs + " received at " + new Date()
+      );
     });
     // Emitted when new mail is expunged or deleted in the currently open mailbox
     imap.on("expunge", (seqno) => {
@@ -31,6 +33,7 @@ module.exports.getAllEmails = () => {
     imap.once("error", (err) => {
       console.error("Connection error: " + err.stack);
     });
+
     imap.once("end", () => {
       console.log("Connection ended");
       console.log("Ending execution.");
@@ -42,18 +45,26 @@ module.exports.getAllEmails = () => {
       "Something went wrong. Please contact support @ iamrajatsing1@gmail.com",
       e
     );
+    imap.end();
     imap.once("end", () => {
-      console.log("Connection ended");
+      console.log(
+        "Connection ended. Please restart the server if you wish to restart the process."
+      );
     });
   }
 };
 
 function execute() {
   console.log("Connection ready.");
-  console.log("Starting execution....");
+  console.log("************** Starting execution **********");
   const ALLEMAILS = "ALL";
-  const fromDate = "April 23, 2021";
+  const fromDate = "April 25, 2021";
   const searchCriteria = [ALLEMAILS, ["SINCE", fromDate]];
+
+  // const searchCriteria = [ALLEMAILS, [ 'HEADER', 'SUBJECT', 'node-imap' ]];
+  // custom search  which looks for "node-imap" in header and subject 
+  // to get zero emails for testing listening feature
+
   // Open the Mail box
   imap.openBox("INBOX", false, (err, mailBox) => {
     if (err) {
@@ -69,12 +80,12 @@ function execute() {
           "Could not fetch mails. Please contact support @ iamrajatsingh1@gmail.com." +
             err2
         );
-        imap.end();
         return;
       }
       if (!results || !results.length) {
-        console.log("No unread mails");
-        imap.end();
+        console.log(
+          "********** Finished fetching emails. No emails found *************"
+        );
         return;
       }
       const f = imap.fetch(results, { bodies: "" });
@@ -84,8 +95,12 @@ function execute() {
         return Promise.reject(ex);
       });
       f.once("end", () => {
-        console.log("Done fetching all messages!");
-        imap.end();
+        console.log(
+          "**********Done fetching/saving all messages!*************"
+        );
+        console.log(
+          "Server is still listening for any new updates in the mailbox"
+        );
       });
     });
   });

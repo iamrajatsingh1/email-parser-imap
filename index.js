@@ -4,13 +4,16 @@ require("dotenv").config();
 // ! controllers
 const {
   readAllEmailsController,
-} = require("./src/controllers/getAllEmails.controller");
+} = require("./src/controllers/emails.controller");
 // ! Initialize Express
 const expressApp = express();
 
 /**
- * fetches all emails
- * stores the data in JSON file under allMails folder in the repository
+ * This Script 
+ * Establishes a secure TCP connection to the IMAP server
+ * Fetches all emails
+ * stores the parsed data of the email in JSON file under allMails folder in the repository
+ * Keeps listening to the new emails/updated emails
  *  */ 
 readAllEmailsController();
 
