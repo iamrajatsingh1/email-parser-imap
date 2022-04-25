@@ -36,4 +36,4 @@ IMAP_PROD_PORT=993
 
 ## Step 3:
 ### `npm run start`
-This will run the app in the production mode.<br>
+This will run the service that will do the above mentioned processes.<br>

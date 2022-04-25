@@ -61,8 +61,8 @@ function execute() {
   const fromDate = "April 25, 2021";
   const searchCriteria = [ALLEMAILS, ["SINCE", fromDate]];
 
-  // const searchCriteria = [ALLEMAILS, [ 'HEADER', 'SUBJECT', 'node-imap' ]];
-  // custom search  which looks for "node-imap" in header and subject 
+  // const searchCriteria = [ALLEMAILS, ["HEADER", "SUBJECT", "node-imap"]];
+  // custom search  which looks for "node-imap" in header and subject
   // to get zero emails for testing listening feature
 
   // Open the Mail box
@@ -80,11 +80,17 @@ function execute() {
           "Could not fetch mails. Please contact support @ iamrajatsingh1@gmail.com." +
             err2
         );
+        console.log(
+          "Server is still listening for any new updates in the mailbox"
+        );
         return;
       }
       if (!results || !results.length) {
         console.log(
           "********** Finished fetching emails. No emails found *************"
+        );
+        console.log(
+          "Server is still listening for any new updates in the mailbox"
         );
         return;
       }
